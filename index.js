@@ -3,6 +3,9 @@
 // https://stackoverflow.com/a/46668737
 // https://stackoverflow.com/a/11944984
 
+// https://github.com/fraigo/node-express-rest-api-example/blob/master/server.js
+// https://expressjs.com/en/api.html#req.query
+
 const express = require('express');
 var app = express()
 const https = require('https');
