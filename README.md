@@ -3,6 +3,9 @@ develop on https://glitch.com
 current URL
 https://spectrum-whip-sulfur.glitch.me
 
+main file for publish is
+index.js
+
 
 library
 
