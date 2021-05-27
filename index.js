@@ -5,6 +5,8 @@
 
 const express = require('express');
 var app = express()
+const https = require('https');
+const fs = require('fs');
 
 
 // https://qiita.com/yonedaco/items/569bcc442872a1f9a03d
@@ -59,7 +61,7 @@ var app = express()
 const URL = `https://cdn.glitch.com/6a17e047-77f1-4d9b-b646-2e1a7c77fdee%2Ftest.mp4?v=1622090667091`;
 
 app.get('/', function (req, res) {
-    http.get(URL, function (file) {
+    https.get(URL, function (file) {
         file.pipe(res);
     });
 });
