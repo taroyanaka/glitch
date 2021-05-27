@@ -8,6 +8,10 @@ var app = express()
 const https = require('https');
 const fs = require('fs');
 
+const sqlite3 = require('sqlite3').verbose();
+const db = new sqlite3.Database('tmp.sqlite3');
+
+
 // var http = require('http');
 // http.createServer(function (request, response) {
 //     response.writeHead(200, { 'Content-Type': 'text/plain' });
@@ -26,19 +30,37 @@ app.get('/', function (req, res) {
 }).listen(3000);
 
 
+// domainURL/test&id=42
+
+app.get("/test", (req, res, next) => {
+    const id = req.query.id;
+    // https://qiita.com/kojiro_ueda/items/de9402027e0b8e83569e
+    async function serialize() {
+        new Promise(resolve => {
+            db.serialize(() => {
+                db.run(`INSERT INTO lorem (info) values('foobar-${id}-1');`);
+                db.run(`INSERT INTO lorem (info) values('foobar-${id}-2');`);
+                db.run(`INSERT INTO lorem (info) values('foobar-${id}-3');`);
+
+                db.run(`INSERT INTO lorem (info) values('foobar-${id}-4');`, () => resolve());
+            });
+        });
+    }
+    serialize();
+    res.json({
+        "message": "success"
+        ,
+        "data": req.query.id
+    })
+}).listen(3000);
+
+
+
 
 
 
 
 // https://utano.jp/entry/2017/10/mysql57-mysql-secure-installation/
-
-
-
-
-
-CREATE TABLE table_name(
-    column_1 INT PRIMARY KEY,
-)
 
 
 

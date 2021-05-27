@@ -1,6 +1,8 @@
 var sqlite3 = require('sqlite3').verbose();
 var db = new sqlite3.Database('tmp.sqlite3');
 
+
+// https://qiita.com/kojiro_ueda/items/de9402027e0b8e83569e
 async function serialize() {
     new Promise(resolve => {
         db.serialize(() => {
