@@ -7,7 +7,7 @@ https://spectrum-whip-sulfur.glitch.me
 
 main file for publish is
 index.js
-https://glitch.com/edit/#!/spectrum-whip-sulfur?path=index.js
+https://glitch.com/edit/#!/spectrum-whip-sulfur?path=index.js%3A1%3A0
 
 
 library
