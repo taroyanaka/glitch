@@ -7,13 +7,19 @@
 // https://expressjs.com/en/api.html#req.query
 
 const express = require('express');
-var app = express()
+const app = express();
 const https = require('https');
 const fs = require('fs');
 
 const sqlite3 = require('sqlite3').verbose();
 const db = new sqlite3.Database('tmp.sqlite3');
 
+var HTTP_PORT = 8000
+
+// Start server
+app.listen(HTTP_PORT, () => {
+    console.log("Server running on port %PORT%".replace("%PORT%", HTTP_PORT))
+});
 
 // var http = require('http');
 // http.createServer(function (request, response) {
@@ -30,7 +36,8 @@ app.get('/', function (req, res) {
     https.get(URL, function (file) {
         file.pipe(res);
     });
-}).listen(3000);
+});
+    // .listen(3000);
 
 
 // domainURL/test&id=42
@@ -55,7 +62,8 @@ app.get("/test", (req, res, next) => {
         ,
         "data": req.query.id
     })
-}).listen(3000);
+});
+    // .listen(3000);
 
 
 
