@@ -12,6 +12,8 @@ const https = require('https');
 const fs = require('fs');
 
 const sqlite3 = require('sqlite3').verbose();
+
+// https://support.glitch.com/t/hiding-sqlite-database-from-open-project/4536
 const db = new sqlite3.Database('.data/tmp.sqlite3');
 
 var HTTP_PORT = 8000
