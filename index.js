@@ -18,13 +18,13 @@ const fs = require('fs');
 let URL = `https://cdn.glitch.com/6a17e047-77f1-4d9b-b646-2e1a7c77fdee%2Ftest.mp4?v=1622090667091`;
 // URL = "https://translate.google.com/translate_tts?ie=UTF-8&tl=tr-TR&client=tw-ob&q=Bats%C4%B1n+bu+d%C3%BCnya+bitsin+bu+r%C3%BCya";
 
-// app.get('/', function (req, res) {
-//     https.get(URL, function (file) {
-//         file.pipe(res);
-//     });
-// }).listen(3000);
-
 app.get('/', function (req, res) {
-    const file = `${__dirname}/test.mp4`;
-    res.download(file); // Set disposition and send it.
+    https.get(URL, function (file) {
+        file.pipe(res);
+    });
 }).listen(3000);
+
+// app.get('/', function (req, res) {
+//     const file = `${__dirname}/test.mp4`;
+//     res.download(file);
+// }).listen(3000);
