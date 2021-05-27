@@ -41,6 +41,11 @@ app.get('/', function (req, res) {
 
 
 // domainURL/test&id=42
+// https://spectrum-whip-sulfur.glitch.me/test?id=42
+
+// look result in terminal
+// sqlite3 tmp.sqlite3
+// select * from lorem;
 
 app.get("/test", (req, res, next) => {
     const id = req.query.id;
@@ -63,7 +68,6 @@ app.get("/test", (req, res, next) => {
         "data": req.query.id
     })
 });
-    // .listen(3000);
 
 
 
